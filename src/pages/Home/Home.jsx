@@ -1,7 +1,19 @@
+/* eslint-disable no-unused-vars */
 
 import './Home.css'
+import { useContext, useEffect, useState } from 'react'
+import { CoinContext } from '../../context/CoinContext'
+
 
 const Home = () => {
+
+  const {allCoin, currency} = useContext(CoinContext)
+  const [displayCoin, setDisplayCoin] = useState([])
+
+  useEffect(() => {
+    setDisplayCoin(allCoin)
+  }, [allCoin]) // 1.09
+
   return (
     <div className='home'>
       <div className='hero'>
